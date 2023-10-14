@@ -26,7 +26,7 @@ public class PlayerMovement : MonoBehaviour
             rb.velocity = new Vector2(0.0f, -speed);
         }
 
-        if (Input.GetKey(KeyCode.A))
+        else if (Input.GetKey(KeyCode.A))
         {
             rb.velocity = new Vector2(-speed, 0.0f);
         }
@@ -39,7 +39,6 @@ public class PlayerMovement : MonoBehaviour
         {
             rb.velocity = Vector2.zero;
         }
-        rb.velocity = new Vector2(xDir, yDir).normalized * speed;
 
     }
 }

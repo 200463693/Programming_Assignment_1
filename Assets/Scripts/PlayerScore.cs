@@ -13,11 +13,9 @@ public class PlayerScore : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D collision)
     {
         playerscore = playerscore + 100;
-    }
-
-
-    void Update()
-    {
         Debug.Log(playerscore);
     }
+
+
+   
 }
