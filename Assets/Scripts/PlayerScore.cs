@@ -4,15 +4,20 @@ using UnityEngine;
 
 public class PlayerScore : MonoBehaviour
 {
-    // Start is called before the first frame update
+    int playerscore = 0;
     void Start()
     {
-        
+
     }
 
-    // Update is called once per frame
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        playerscore = playerscore + 100;
+    }
+
+
     void Update()
     {
-        
+        Debug.Log(playerscore);
     }
 }
