@@ -2,17 +2,18 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerScore : MonoBehaviour
+public class Enemy : MonoBehaviour
 {
-    int playerscore = 0;
+    int lives = 3;
     void Start()
     {
-
+        Debug.Log(lives);
     }
 
+    
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        playerscore = playerscore + 100;
-        Debug.Log(playerscore);
+        lives = lives - 1;
+        Debug.Log(lives);
     }
 }
