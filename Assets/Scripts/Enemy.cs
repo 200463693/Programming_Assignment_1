@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Enemy : MonoBehaviour
 {
@@ -15,5 +17,13 @@ public class Enemy : MonoBehaviour
     {
         lives = lives - 1;
         Debug.Log(lives);
+    }
+
+    private void Update()
+    {
+        if (lives == 0) 
+        {
+            SceneManager.LoadScene(1);
+        }
     }
 }
