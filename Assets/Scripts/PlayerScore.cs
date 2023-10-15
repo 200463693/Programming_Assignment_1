@@ -5,7 +5,7 @@ using UnityEngine;
 public class PlayerScore : MonoBehaviour
 {
     public int score = 0;
-    int playerscore = gameObject.GetComponent<PlayerScore>().score;
+
     void Start()
     {
 
@@ -13,8 +13,6 @@ public class PlayerScore : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        playerscore = score + 100;
-        Debug.Log(playerscore);
        
     }
 }
