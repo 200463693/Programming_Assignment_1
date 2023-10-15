@@ -5,7 +5,9 @@ using UnityEngine.SceneManagement;
 
 public class PlayerMovement : MonoBehaviour
 {
-    public float speed = 0.8f;
+    public float normalSpeed;
+    public float speedUp;
+    public float currentspeed;
     Rigidbody2D rb;
 
     private int score = 0;
@@ -18,6 +20,7 @@ public class PlayerMovement : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        currentspeed = normalSpeed;
         rb = GetComponent<Rigidbody2D>();
     }
 
@@ -26,22 +29,22 @@ public class PlayerMovement : MonoBehaviour
     {
         if (Input.GetKey(KeyCode.W))
         {
-            rb.velocity = new Vector2(0.0f, speed);
+            rb.velocity = new Vector2(0.0f, currentspeed);
         }
 
         else if (Input.GetKey(KeyCode.S))
         {
-            rb.velocity = new Vector2(0.0f, -speed);
+            rb.velocity = new Vector2(0.0f, -currentspeed);
         }
 
         else if (Input.GetKey(KeyCode.A))
         {
-            rb.velocity = new Vector2(-speed, 0.0f);
+            rb.velocity = new Vector2(-currentspeed, 0.0f);
         }
 
         else if (Input.GetKey(KeyCode.D))
         {
-            rb.velocity = new Vector2(speed, 0.0f);
+            rb.velocity = new Vector2(currentspeed, 0.0f);
         }
         else
         {
@@ -69,10 +72,18 @@ public class PlayerMovement : MonoBehaviour
         }
         if (collider.CompareTag("Fire"))
         {
+
+            currentspeed = normalSpeed / speedUp;
             health -= 1;
 
             HealthDisplay.Instance.UpdatehealthText(health);
 
-        }
+        }  
+    }
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+
+        currentspeed = normalSpeed;
+
     }
 }
