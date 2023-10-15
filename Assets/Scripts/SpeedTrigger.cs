@@ -4,9 +4,10 @@ using UnityEngine;
 
 public class Speed : MonoBehaviour
 {
-
+    
     private void OnTriggerEnter2D(Collider2D collision)
     {
+        PlayerMovement playerMovement = transform.Find("ChildObjectName").GetComponent<PlayerMovement>();
         if (collision != null)
         {
             Debug.Log("Collision with: " + collision.gameObject.name);
